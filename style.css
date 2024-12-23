@@ -1,0 +1,133 @@
+:root {
+    --color-dark: #050505;
+    --color-light: #fafafa;
+
+    --s-5: clamp(0.33rem,0.39rem + -0.29vw,0.18rem);
+    --s-4: clamp(0.41rem,0.47rem + -0.31vw,0.25rem);
+    --s-3: clamp(0.51rem,0.57rem + -0.31vw,0.35rem);
+    --s-2: clamp(0.64rem,0.69rem + -0.27vw,0.5rem);
+    --s-1: clamp(0.8rem,0.84rem + -0.18vw,0.71rem);
+    --s0: clamp(1rem,1rem + 0vw,1rem);
+    --s1: clamp(1.25rem,1.19rem + 0.32vw,1.41rem);
+    --s2: clamp(1.56rem,1.39rem + 0.85vw,2rem);
+    --s3: clamp(1.95rem,1.61rem + 1.7vw,2.83rem);
+    --s4: clamp(2.44rem,1.83rem + 3.04vw,4rem);
+    --s5: clamp(3.05rem,2.04rem + 5.07vw,5.65rem);
+
+    /* ----------------------------------
+    space (for gutter, gap, margin)
+    ---------------------------------- */ 
+    --space-2xs: clamp(0.375rem,0.3414rem + 0.1678vi,0.5rem);
+    --space-xs: clamp(0.5625rem,0.5122rem + 0.2517vi,0.75rem);
+    --space-s: clamp(0.75rem,0.6829rem + 0.3356vi,1rem);
+    --space-m: clamp(1.125rem,1.0243rem + 0.5034vi,1.5rem);
+    --space-l: clamp(1.5rem,1.3658rem + 0.6711vi,2rem);
+    --space-xl: clamp(1.875rem,1.7072rem + 0.8389vi,2.5rem);
+    --space-2xl: clamp(3rem,2.7315rem + 1.3423vi,4rem);
+    --space-3xl: clamp(3.75rem,3.4144rem + 1.6779vi,5rem);
+    --space-4xl: clamp(5.625rem,5.1216rem + 2.5168vi,7.5rem);
+
+    --space-2xs-xs: clamp(0.375rem,0.2743rem + 0.5034vi,0.75rem);
+    --space-xs-s: clamp(0.5625rem,0.4451rem + 0.5872vi,1rem);
+    --space-s-m: clamp(0.75rem,0.5487rem + 1.0067vi,1.5rem);
+    --space-m-l: clamp(1.125rem,0.8901rem + 1.1745vi,2rem);
+    --space-l-xl: clamp(1.5rem,1.2315rem + 1.3423vi,2.5rem);
+    --space-xl-2xl: clamp(1.875rem,1.3045rem + 2.8523vi,4rem);
+    --space-2xl-3xl: clamp(3rem,2.4631rem + 2.6846vi,5rem);
+    --space-3xl-4xl: clamp(3.75rem,2.7433rem + 5.0336vi,7.5rem);
+
+    --space-s-l: clamp(0.75rem,0.4144rem + 1.6779vi,2rem);
+    --space-l-3xl: clamp(1.5rem,0.5604rem + 4.698vw,5rem);
+
+    
+    --border-thin: var(--s-5);
+    --border-thick: var(--s-2);
+
+    --measure: 60ch;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+ *,
+ *::before,
+ *::after {
+     box-sizing: inherit;
+ }
+
+ /* Exception-based styling ----------------------- */
+ blockquote, body, dd, dl, figure, h1, h2, h3, h4, p {
+     margin-block: 0;
+}
+
+
+body{
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    /* hack */
+    /* overflow: hidden;
+    height: 100vh;  */
+
+    /* mio reset useragent */
+    margin-inline: 0;
+}
+
+.center {
+    /* ↓ Remove padding from the width calculation */
+    box-sizing: content-box;
+    /* ↓ The maximum width is the maximum measure */
+    max-inline-size: calc(var(--measure) * 1.5);
+    /* ↓ Only affect horizontal margins */
+    margin-inline: auto;
+    /* ↓ Apply the minimum horizontal space */
+    /* padding-inline-start: var(--s1);
+    padding-inline-end: var(--s1); */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* center vertical ---------------------------- */
+    justify-content: center;
+    min-block-size: 100vh;
+
+}
+
+
+/* Box =================================== */
+.box {
+    padding: var(--s1);
+    border: var(--border-thin) solid red;
+} 
+
+/* Stack =================================== */
+/* is NOT Stack layout */
+.stack {
+    border: var(--border-thin) solid orange;
+}
+/* Stack layout */
+.stack > * + * {
+    /* margin-block-start: var(--space, 1.5rem); */
+    margin-block-start:  var(--space-s);
+}
+
+/* ======================================== */
+.one {
+    /*  padding: var(--s5); */
+    padding: var(--space-4xl);
+    border: var(--border-thin) solid;
+}
+.two {
+    padding: var(--space-xl);
+    border: var(--border-thin) solid;
+}
+.three {
+    padding: var(--space-3xl);
+    border: var(--border-thin) solid;
+}
+
